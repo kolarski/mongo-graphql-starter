@@ -1,4 +1,4 @@
-    async update${objName}(root, args, context, ast) {
+    async update${objName}(root: any, args: any, context: any, ast: any) {
       let db = await (typeof root.db === "function" ? root.db() : root.db);
       context.__mongodb = db;
       let { $match, $project } = decontructGraphqlQuery(args._id ? { _id: args._id } : {}, ast, ${objName}Metadata, "${objName}");
