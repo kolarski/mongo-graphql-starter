@@ -26,7 +26,7 @@ export default {
       //Called before a deletion. Return false to cancel it.
     },
     afterDelete(match: any, root: any, args: any, context: any, ast: any) {
-      //Called after a deltion. The filter match will be passed into the first parameter.
+      //Called after a deletion. The filter match will be passed into the first parameter.
     },
     adjustResults(results: any) {
       //Called anytime objects are returned from a graphQL endpoint. Use this hook to make adjustments to them.
