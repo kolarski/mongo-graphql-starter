@@ -3,7 +3,7 @@
         throw "No _id sent";
       }
       let db = await (typeof root.db === "function" ? root.db() : root.db);
-      let $match = { _id: ObjectId(args._id) };
+      let $match = { _id: new ObjectId(args._id) };
       
       if (await processHook(hooksObj, "${objName}", "beforeDelete", $match, root, args, context, ast) === false) {
         return false;
