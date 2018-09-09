@@ -42,9 +42,9 @@ export default function(source, destPath) {
     modules.forEach(objectToCreate => {
       let objName = objectToCreate.__name;
       let modulePath = path.join(rootDir, objName);
-      let objPath = path.join(modulePath, objName + ".js");
-      let schemaPath = path.join(modulePath, "schema.js");
-      let resolverPath = path.join(modulePath, "resolver.js");
+      let objPath = path.join(modulePath, objName + ".ts");
+      let schemaPath = path.join(modulePath, "schema.ts");
+      let resolverPath = path.join(modulePath, "resolver.ts");
 
       names.push(objName);
       if (objectToCreate.table) {
@@ -61,13 +61,13 @@ export default function(source, destPath) {
       }
     });
 
-    fs.writeFileSync(path.join(rootDir, "schema.js"), createMasterSchema(names, namesWithTables, namesWithoutTables));
+    fs.writeFileSync(path.join(rootDir, "schema.ts"), createMasterSchema(names, namesWithTables, namesWithoutTables));
 
-    fs.writeFileSync(path.join(rootDir, "resolver.js"), createMasterResolver(namesWithTables));
-    if (!fs.existsSync(path.join(rootDir, "hooks.js"))) {
+    fs.writeFileSync(path.join(rootDir, "resolver.ts"), createMasterResolver(namesWithTables));
+    if (!fs.existsSync(path.join(rootDir, "hooks.ts"))) {
       fs.writeFileSync(
-        path.join(rootDir, "hooks.js"),
-        fs.readFileSync(path.resolve(__dirname, "./codeGen/processingHooksTemplate.js"), { encoding: "utf8" })
+        path.join(rootDir, "hooks.ts"),
+        fs.readFileSync(path.resolve(__dirname, "./codeGen/processingHooksTemplate.ts"), { encoding: "utf8" })
       );
     }
   });
