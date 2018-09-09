@@ -67,7 +67,7 @@ export default function(source, destPath) {
     if (!fs.existsSync(path.join(rootDir, "hooks.ts"))) {
       fs.writeFileSync(
         path.join(rootDir, "hooks.ts"),
-        fs.readFileSync(path.resolve(__dirname, "./codeGen/processingHooksTemplate.ts"), { encoding: "utf8" })
+        fs.readFileSync(path.resolve(__dirname, "./codeGen/processingHooksTemplate.js"), { encoding: "utf8" })
       );
     }
   });
