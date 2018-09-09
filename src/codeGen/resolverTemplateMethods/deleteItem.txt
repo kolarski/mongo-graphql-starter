@@ -1,4 +1,4 @@
-    async delete${objName}(root, args, context, ast) {
+    async delete${objName}(root: any, args: any, context: any, ast: any) {
       if (!args._id) {
         throw "No _id sent";
       }
