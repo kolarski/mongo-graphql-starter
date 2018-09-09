@@ -3,7 +3,7 @@ export default {
     queryPreprocess(root: any, args: any, context: any, ast: any) {
       //Called before query filters are processed
     },
-    queryMiddleware(queryPacket: any, root: any, args: any, context: any, ast): any {
+    queryMiddleware(queryPacket: any, root: any, args: any, context: any, ast: any) {
       //Called after query filters are processed, which are passed in queryPacket
     },
     queryPreAggregate(aggregateItems: any, root: any, args: any, context: any, ast: any) {
