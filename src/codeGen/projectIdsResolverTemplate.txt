@@ -1,4 +1,4 @@
-  async ${targetObjName}(obj, args, context, ast) {
+  async ${targetObjName}(obj: any, args: any, context: any, ast: any) {
     if (context.${dataLoaderId} == null) {
       let db = await context.__mongodb;
       context.${dataLoaderId} = new DataLoader(async keyArrays => {
