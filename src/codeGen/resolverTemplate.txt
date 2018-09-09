@@ -1,4 +1,4 @@
-export async function load${objName}s(db, queryPacket, root, args, context, ast) {
+export async function load${objName}s(db: any, queryPacket: any, root: any, args: any, context: any, ast: any) {
   let { $match, $project, $sort, $limit, $skip } = queryPacket;
 
   let aggregateItems = [
