@@ -86,7 +86,7 @@ export default function createGraphqlResolver(objectToCreate) {
           .replace(/\${keyField}/g, relationship.keyField || "_id")
           .replace(
             /\${idMapping}/g,
-            relationship.type.fields[relationship.keyField || "_id"] === MongoIdType ? "ids => ids.map(id => ObjectId(id))" : "ids => ids"
+            relationship.type.fields[relationship.keyField || "_id"] === MongoIdType ? "ids => ids.map((id: any) => new ObjectId(id))" : "ids => ids"
           )
           .replace(/\${targetObjName}/g, relationshipName)
           .replace(/\${targetTypeName}/g, relationship.type.__name)
@@ -103,7 +103,7 @@ export default function createGraphqlResolver(objectToCreate) {
           .replace(/\${table}/g, relationship.type.table)
           .replace(/\${fkField}/g, relationship.fkField)
           .replace(/\${keyField}/g, relationship.keyField || "_id")
-          .replace(/\${idMapping}/g, relationship.type.fields[relationship.keyField || "_id"] === MongoIdType ? "id => ObjectId(id)" : "id => id")
+          .replace(/\${idMapping}/g, relationship.type.fields[relationship.keyField || "_id"] === MongoIdType ? "(id: any) => new ObjectId(id)" : "id => id")
           .replace(/\${targetObjName}/g, relationshipName)
           .replace(/\${targetTypeName}/g, relationship.type.__name)
           .replace(/\${targetTypeNameLower}/g, relationship.type.__name.toLowerCase())
